@@ -1,14 +1,33 @@
 import React from "react";
+import { FaCircleArrowRight } from "react-icons/fa6";
 import pic from "../assets/pic1.jpg";
 import pic2 from "../assets/pic2.jpg";
 import pic4 from "../assets/pic4.jpg";
-import { FaCircleArrowRight } from "react-icons/fa6";
+
+const projects = [
+  {
+    img: pic,
+    title: "WEB DEVELOPMENT",
+    description: "Scalable and modern websites for businesses.",
+  },
+  {
+    img: pic2,
+    title: "UI/UX DESIGN",
+    description:
+      "Emphasize creating engaging, user-friendly digital experiences.",
+  },
+  {
+    img: pic4,
+    title: "APP DEVELOPMENT",
+    description: "Seamless mobile and web applications.",
+  },
+];
 
 function ProjectPage() {
   return (
     <section className="min-h-screen bg-gradient-to-b from-[#4735AC] to-[#1D1646] py-8">
       <div>
-        <header className=" hidden lg:block ml-20 mt-15">
+        <header className="hidden lg:block ml-20 mt-15">
           <h1 className="text-white lg:text-4xl md:text-3xl text-2xl font-bold">
             Our Latest Projects
           </h1>
@@ -25,57 +44,28 @@ function ProjectPage() {
           </p>
         </header>
         <div className="mt-10 flex lg:flex-row flex-col md:gap-20 gap-10 items-center justify-center">
-          <article className="bg-white w-70 h-110 rounded-lg shadow-lg overflow-hidden">
-            <img
-              src={pic}
-              alt="Web development project"
-              className="w-70 h-60 rounded-t-lg object-cover p-1"
-            />
-            <div className="p-4">
-              <h2 className="text-center bg-gradient-to-r text-transparent bg-clip-text from-lime-800 to-cyan-500 text-xl font-semibold">
-                WEB DEVELOPMENT
-              </h2>
-              
+          {projects.map((project, index) => (
+            <article
+              key={index}
+              className="bg-white w-70 h-110 rounded-lg shadow-lg overflow-hidden"
+            >
+              <img
+                src={project.img}
+                alt={project.title}
+                className="w-70 h-60 rounded-t-lg object-cover p-1"
+              />
+              <div className="p-4">
+                <h2 className="text-center bg-gradient-to-r text-transparent bg-clip-text from-lime-800 to-cyan-500 text-xl font-semibold">
+                  {project.title}
+                </h2>
                 <p className="mt-3 mx-auto w-40 text-center text-lg">
-                  Scalable and modern websites for businesses.
+                  {project.description}
                 </p>
-              
-            </div>
-          </article>
-          <article className="bg-white w-70 h-110 rounded-lg shadow-lg overflow-hidden">
-            <img
-              src={pic2}
-              alt="Web development project"
-              className="w-70 h-60 rounded-t-lg object-cover p-1"
-            />
-            <div className="p-4">
-              <h2 className="text-center bg-gradient-to-r text-transparent bg-clip-text from-lime-800 to-cyan-500 text-xl font-semibold">
-              UI/UX DESIGN
-              </h2>
-              
-                <p className="mt-3 mx-auto w-40 text-center text-lg">
-                Emphasize creating engaging, user-friendly digital experiences.
-                </p>
-              
-            </div>
-          </article>
-          <article className="bg-white w-70 h-110 rounded-lg shadow-lg overflow-hidden">
-            <img
-              src={pic4}
-              alt="Web development project"
-              className="w-70 h-60 rounded-t-lg object-cover p-1"
-            />
-            <div className="p-4">
-              <h2 className="text-center bg-gradient-to-r text-transparent bg-clip-text from-lime-800 to-cyan-500 text-xl font-semibold">
-                APP DEVELOPMENT
-              </h2>
-              <p className="mt-3 mx-auto w-40 text-center text-lg">
-                Seamless mobile and web applications.
-              </p>
-            </div>
-          </article>
+              </div>
+            </article>
+          ))}
 
-          <article className="bg-white rounded-lg shadow-lg overflow-hidden w-70 h-110 ">
+          <article className="bg-white rounded-lg shadow-lg overflow-hidden w-70 h-110">
             <div className="relative">
               <img
                 src={pic}
