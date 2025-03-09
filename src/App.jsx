@@ -7,8 +7,8 @@ function App() {
   return (
     <div>
       <ProjectPage/>
-      <Client/>
       <Testimonial/>
+      <Client/>
     </div>
   );
 }
